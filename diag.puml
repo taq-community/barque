@@ -1,0 +1,27 @@
+@startuml
+title BARQUE Pipeline Overview
+
+start
+
+:00_validate_project.sh;
+:01_trim.sh;
+:02_merge.sh;
+:03_split_amplicons.sh;
+:05_chimeras.sh;
+:06_vsearch.sh;
+:07_summarize_results.py;
+:08_summarize_read_dropout.sh;
+
+partition "Non-annotated Workflow" {
+    :09_get_most_frequent_non_annotated_sequences.sh;
+    :10_report_species_for_non_annotated_sequences.py;
+}
+
+partition "OTU Construction" {
+    :11_create_OTUs_vsearch.sh;
+    :12_extract_multiple_hit_sequences.py;
+}
+
+stop
+
+@enduml
