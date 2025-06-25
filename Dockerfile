@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     default-jre \
     parallel \
     r-base \
+    bc \
     python3-setuptools \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
